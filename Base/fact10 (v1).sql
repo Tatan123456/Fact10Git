@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 11-10-2023 a las 01:32:46
+-- Tiempo de generación: 11-10-2023 a las 23:04:23
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -124,7 +124,8 @@ CREATE TABLE IF NOT EXISTS `facturas_anuladas` (
 INSERT INTO `facturas_anuladas` (`n_factura`, `fecha_anulacion`, `fecha_pago`, `items_anulados`, `motivo_anulacion`) VALUES
 (123, '22/10/2023', '25/09/2023', '01 , 03', 'Codigo 011'),
 (456, '11/05/2023', '17/02/2023', '05', 'Codigo 012'),
-(789, '23/06/2023', '05/04/2023', '01 , 05 , 06 ', 'Codigo 012');
+(789, '23/11/199', '2/11/199', '05', 'Codigo 012'),
+(159159, '20/01/2023', '25/01/2023', '02 , 03', 'Codigo 011');
 
 -- --------------------------------------------------------
 
