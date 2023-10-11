@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cuentas Por Cobrar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container mt-4">
+            <div class="col-sm-6">
+                <form th:action="@{/saveCC}" th:object=${mCuentas_Por_Cobrar} method="POST">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Cuentas Por Cobrar</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>N_Factura</label>
+                                <input th:field="*{N_Factura}" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>N_De_Cuenta</label>
+                                <input th:field="*{N_De_Cuenta}" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Detalle</label>
+                                <input th:field="*{Detalle}" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Valor_De_Item</label>
+                                <input th:field="*{Valor_De_Item}" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Forma_De_Pago</label>
+                                <input th:field="*{Forma_De_Pago}" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Total_A_Pagar</label>
+                                <input th:field="*{Total_A_Pagar}" type="text" class="form-control">
+                            </div>
+                           
+                        </div>
+
+                        <div class="card-footer">
+                            <input type="submit" value="guardar" class="btn btn-success">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </body>
+</html>

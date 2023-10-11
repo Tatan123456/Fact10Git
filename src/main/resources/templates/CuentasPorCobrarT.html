@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cuentas Por Cobrar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Formulario Cuentas Por Cobrar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                        </li>
+                        
+                    </ul>
+                   
+                </div>
+            </div>
+        </nav>
+      
+        
+        <div class="container mt-4">
+             <a th:href="@{/newCC}" class="btn btn-primary">Nuevo</a> <!--  newCC esta en el java clas controlador y alli busacamos new el cual no redirije al html de IngreasaDevoluciones-->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>N_Factura</th>
+                        <th>N_De_Cuenta</th>
+                        <th>Detalle</th>
+                        <th>Valor_De_Item</th>
+                        <th>Forma_De_Pago</th>
+                        <th>Total_A_Pagar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="Cuentas:${mCuentas_Por_Cobra}">   <!-- Trae de la java clas controlador mDevolucion este dirije mDevolucion par asi guarde los datos en dond queremos-->
+                        <td th:text="${Cuentas.N_Factura}"></td>
+                        <td th:text="${Cuentas.N_De_Cuenta}"></td>
+                        <td th:text="${Cuentas.Detalle}"></td>
+                        <td th:text="${Cuentas.Valor_De_Item}"></td>
+                        <td th:text="${Cuentas.Forma_De_Pago}"></td>
+                        <td th:text="${Cuentas.Total_A_Pagar}"></td>
+                        <td>
+                            <a th:href="@{/editarCC/}+${Cuentas.N_Factura}" class="btn btn-warning">Editar</a>
+                            <a th:href="@{/eliminarCC/}+${Cuentas.N_Factura}" class="btn btn-danger">Eliminar</a>
+                                
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+    

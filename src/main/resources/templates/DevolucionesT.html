@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Devoluciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Devoluciones</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                        </li>
+                        
+                    </ul>
+                   
+                </div>
+            </div>
+        </nav>
+      
+        
+        <div class="container mt-4">
+             <a th:href="@{/new}" class="btn btn-primary">Nuevo</a> <!--  new esta en el java clas controlador y alli busacamos new el cual no redirije al html de IngreasaDevoluciones-->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>N_Factura</th>
+                        <th>N_Devolucion</th>
+                        <th>Fecha_Devolucion</th>
+                        <th>Motivo_Devolucion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="devoluciones:${mDevolucion}">   <!-- Trae de la java clas controlador mDevolucion este dirije mDevolucion par asi guarde los datos en dond queremos-->
+                        <td th:text="${devoluciones.N_Factura}"></td>
+                        <td th:text="${devoluciones.N_Devolucion.N_De_Cuenta}"></td>
+                        <td th:text="${devoluciones.Fecha_Devolucion}"></td>
+                        <td th:text="${devoluciones.Motivo_Devolucion}"></td>
+                        <td>
+                            <a th:href="@{/editar/}+${devoluciones.N_Factura}" class="btn btn-warning">Editar</a>
+                            <a th:href="@{/eliminar/}+${devoluciones.N_Factura}" class="btn btn-danger">Eliminar</a>
+                                
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+    
